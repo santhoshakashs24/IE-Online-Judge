@@ -14,7 +14,7 @@ class ProblemsController < ApplicationController
 
   # GET /problems/new
   def new
-    @problem = current_user.problems.build
+    @problem = Problem.new
   end
 
   # GET /problems/1/edit
@@ -25,6 +25,7 @@ class ProblemsController < ApplicationController
   # POST /problems.json
   def create
     @problem =  current_user.problems.build(problem_params)
+
 
     respond_to do |format|
       if @problem.save
